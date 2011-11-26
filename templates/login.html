@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+
+<form method="post" action="">
+    <fieldset>
+        <legend>Authorize</legend>
+        <div class="clearfix {% if error %}warning{% endif %}">
+            <label for="password">Password</label>  
+            <div class="input">
+                <input type="password" name="password" id="password" />
+            {% if error %}<span class="help-inline">Invalid password!</span>{% endif %}
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+{% endblock %} 

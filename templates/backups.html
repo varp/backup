@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div>
+        <h1>List of backups:</h1>
+        <a style="float: right;" href="{{ url_for('logout') }}">
+            <span class="label notice">Logout</span>
+        </a>
+    </div>
+
+    
+
+    <table class="bordered-table zebra-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th> 
+            </tr>             
+        </thead>
+        <tbody>
+            {% for f in files %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>
+                    <a href="{{ url_for('send', filename=f.name) }}">{{ f.name }}</a>
+                    <span class="label">Path: {{ f.path }}</span>
+                    <span class="label">Size: {{ f.size }} Kb</span>
+                </td>
+            </tr>
+            {% endfor %}
+        <tbody>
+    </table>
+   
+{% endblock %}

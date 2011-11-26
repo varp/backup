@@ -1,0 +1,8 @@
+div.container {
+    margin-top: 50px;
+}
+
+.center-block {
+    margin: 0px auto;
+    display: block;
+}
