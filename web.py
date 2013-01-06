@@ -1,3 +1,4 @@
+# coding: utf8
 import os
 import os.path
 import re
@@ -9,10 +10,10 @@ from werkzeug import secure_filename
 
 cfg = ConfigParser.ConfigParser()
 try:
-    cfg.read(os.path.join("backup.conf")
+    cfg.read(os.path.join(os.path.dirname(__file__), "backup.conf"))
 except IOError:
     print("Cannot read config file. Aborting.")
-    exit(1)    
+    exit(-1)    
 
 
 PASSWORD = cfg.get('web', 'password', None)
@@ -25,8 +26,13 @@ if not DOWNLOAD_FOLDER:
 
 app = Flask(__name__)
 app.config.from_object(__name__)
-#app.use_x_sendfile = True
-app.secret_key = "(?\x97\xf7z`;'\x02\xdc\x0fB\x19s\xd7 \xdaQ\xc5<y\x7fGt"
+app.secret_key = cfg.get('general', 'secret_key', None)
+print app.secret_key
+
+if not app.secret_key:
+    print("SECRET_KEY not found. Aborting.")
+    exit(-1)
+
 
 class Backup(object):
     def __init__(self, name):
@@ -89,7 +95,7 @@ def send(filename):
     if not session.get('logged_in', None):
         return redirect(url_for('login'))
     
-    backups = _get_files() and backups = [b.name for b in backups]
+    backups = _get_files(); backups = [b.name for b in backups]
     if filename in backups:
         return send_from_directory(app.config['DOWNLOAD_FOLDER'], filename)
     else:
@@ -97,4 +103,4 @@ def send(filename):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
