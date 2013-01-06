@@ -4,7 +4,7 @@ Coded on Python with Flask and Fabric.
 Installation
 ============
 * Requirements
-    pip install -r requirements.txt
+    `pip install -r requirements.txt`
 
 * Deploy as a standard Flask app. For more inforamtion go to http://flask.pocoo.org/docs/deploying/
 
