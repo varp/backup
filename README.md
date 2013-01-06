@@ -14,6 +14,7 @@ Change `backup.conf` for your needs. After that add cron job for the `fabfile.py
 on a period of time you need.
 
 Generate secret_key for your app
+--------------------------------
     >>> import os
     >>> os.urandom(24)
     '\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\xa8'
