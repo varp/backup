@@ -1,4 +1,4 @@
-Simple backuping system for your site and related with sites MySQL DBs.
+Simple backuping system for your sites and related with the sites MySQL DBs.
 Coded on Python with Flask and Fabric.
 
 Installation
@@ -10,6 +10,6 @@ Installation
 
 Config
 ======
-Change *backup.conf* for your needs. After that add cron job for the *fabfile.py* 
+Change `backup.conf` for your needs. After that add cron job for the `fabfile.py` 
 on a period of time you need.
 
