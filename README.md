@@ -1,4 +1,4 @@
-Simple backuping system for your sites and related with the sites MySQL DBs.
+Simple backuping system with **web interfaces** for your sites and related with the sites MySQL DBs.
 Coded on Python with Flask and Fabric.
 
 Installation
